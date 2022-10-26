@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: bundle install
+          command: bundle install
+      - run:
           name: Database setup
           command: |
             bundle exec rails db:create
