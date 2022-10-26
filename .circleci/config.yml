@@ -13,8 +13,8 @@ jobs:
       - run:
           name: Database setup
           command: |
-            run: bundle exec rails db:create
-            run: bundle exec rails db:migrate
+            bundle exec rails db:create
+            bundle exec rails db:migrate
       - run:
           name: Run rspec
           command: bundle exec rspec
@@ -26,6 +26,9 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - run:
+          name: bundle install
+          command: bundle install
       - run:
           name: Run rubocop
           command: bundle exec rubocop --require rubocop-airbnb
