@@ -27,8 +27,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Run rubocop
-        command: bundle exec rubocop --require rubocop-airbnb
+          name: Run rubocop
+          command: bundle exec rubocop --require rubocop-airbnb
 
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
