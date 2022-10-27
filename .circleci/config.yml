@@ -38,7 +38,7 @@ jobs:
 
   heroku_deploy:
     docker:
-      - image: cimg/deploy:2022.09
+      - image: sue445/heroku-cli
     resource_class: small
     steps:
       - checkout
