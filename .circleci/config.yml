@@ -36,9 +36,27 @@ jobs:
           name: Run rubocop
           command: bundle exec rubocop --require rubocop-airbnb
 
+  heroku_deploy:
+    docker:
+      - image: cimg/deploy:2022.09
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Deploy
+          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
+      - run:
+          name: Run post-deploy tasks
+          command: |
+            heroku config:set AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY AWS_REGION=$AWS_DEFAULT_REGION AWS_BUCKET=$AWS_DEFAULT_BUCKET
+            heroku run bin/rails db:migrate
+
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  build:
     jobs:
       - rspec
       - rubocop
+      - heroku_deploy:
+          requires:
+            - rspec
+            - rubocop
