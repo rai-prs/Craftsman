@@ -1,0 +1,10 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>">
+    <% if #{message_type} == notice %>
+      <i class="fa-regular fa-circle-check i-check"></i>
+    <% else %>
+      aaaaaaaaaaaaaaaaaaaaaaaa
+    <% end %>
+    <%= message %>
+  </div>
+<% end %>
