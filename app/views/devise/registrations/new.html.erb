@@ -1,7 +1,7 @@
-<div class= "top">
-  <div class= "container top-form">
+<div class="top">
+  <div class="container top-form">
+    <div class="text-signup"><span class="text-s">S</span>ignUp</div>
     <div class="form-field">
-      <h1>アカウント登録</h1>
       <div class="device-inner"  id='app'>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
@@ -77,11 +77,10 @@
                 <button class= "guest-log" >Guest Login</button>
               <% end %>
             </div>
-            <%= f.submit "SIGN UP",id: "SignUp", class: "form-sign-up", "v-bind:disabled" => "!validationSignUp" %>
+            <%= f.submit "SIGN UP", id: "SignUp", class: "form-sign-up", "v-bind:disabled" => "!validationSignUp" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-<%= javascript_pack_tag 'hello_vue' %>

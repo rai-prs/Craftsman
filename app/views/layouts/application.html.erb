@@ -8,8 +8,10 @@
 
     <%= stylesheet_pack_tag 'application' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
     <script src="https://kit.fontawesome.com/87de6304b2.js" crossorigin="anonymous"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'hello_vue' %>
   </head>
 
   <body id="body">
@@ -26,6 +28,7 @@
         </div>
       </div>
     </header>
+    <%= render 'shared/flash_messages' %>
     <%= yield %>
   </body>
 </html>

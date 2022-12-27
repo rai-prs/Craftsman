@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'diagnoses/new'
+  get 'diagnoses/show'
   root to:    'home#index'
   get         'home/index'
 
