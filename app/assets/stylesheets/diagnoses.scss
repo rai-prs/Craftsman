@@ -1,3 +1,53 @@
 // Place all the styles related to the diagnoses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.question-field {
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  padding: 5px 0px;
+}
+
+.apply-field {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+
+  .not-apply {
+    
+  }
+
+  .apply {
+    
+  }
+}
+
+.answer-field {
+  display: flex;
+  justify-content:  space-around;
+  padding: 10px;
+
+  .answer-number {
+    display: none;
+
+    &:checked + label {
+      background-color: rgb(201, 200, 200);
+      border: 1px solid rgb(201, 200, 200);
+    }
+  }
+
+  .label-number {
+    display: block;
+    border: 1px solid rgb(241, 238, 238);
+    border-radius: 50px;
+    width: 28px;
+    cursor: pointer;
+    background-color: rgb(241, 238, 238);
+    box-shadow: rgba(0, 0, 0, 12) 0px 3px 10px -5px;
+
+    &:hover {
+      background-color: rgb(218, 218, 218);
+      border: 1px solid rgb(218, 218, 218);
+    }
+  }
+}

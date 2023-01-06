@@ -1,2 +1,556 @@
-<h1>Diagnoses#new</h1>
-<p>Find me in app/views/diagnoses/new.html.erb</p>
+<div class="top">
+  <div class="container top-form">
+    <%= form_with model: @diagnosis, local: true do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q1. 人と話すのが好き</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :communication, "1", class:"answer-number" %>
+                  <%= f.label :communication_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :communication, "2", class:"answer-number" %>
+                  <%= f.label :communication_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :communication, "3", class:"answer-number" %>
+                  <%= f.label :communication_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :communication, "4", class:"answer-number" %>
+                  <%= f.label :communication_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :communication, "5", class:"answer-number" %>
+                  <%= f.label :communication_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q2. 何事も計画を立ててから行動するタイプである</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :planning, "1", class:"answer-number" %>
+                  <%= f.label :planning_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :planning, "2", class:"answer-number" %>
+                  <%= f.label :planning_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :planning, "3", class:"answer-number" %>
+                  <%= f.label :planning_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :planning, "4", class:"answer-number" %>
+                  <%= f.label :planning_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :planning, "5", class:"answer-number" %>
+                  <%= f.label :planning_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q3. 物を作ったりすることが好き</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :dexterous, "1", class:"answer-number" %>
+                  <%= f.label :dexterous_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dexterous, "2", class:"answer-number" %>
+                  <%= f.label :dexterous_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dexterous, "3", class:"answer-number" %>
+                  <%= f.label :dexterous_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dexterous, "4", class:"answer-number" %>
+                  <%= f.label :dexterous_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dexterous, "5", class:"answer-number" %>
+                  <%= f.label :dexterous_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q4. 些細なことでも直さないと気が済まない</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :tidy, "1", class:"answer-number" %>
+                  <%= f.label :tidy_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :tidy, "2", class:"answer-number" %>
+                  <%= f.label :tidy_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :tidy, "3", class:"answer-number" %>
+                  <%= f.label :tidy_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :tidy, "4", class:"answer-number" %>
+                  <%= f.label :tidy_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :tidy, "5", class:"answer-number" %>
+                  <%= f.label :tidy_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q5. 体力に自信がある</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :physically, "1", class:"answer-number" %>
+                  <%= f.label :physically_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :physically, "2", class:"answer-number" %>
+                  <%= f.label :physically_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :physically, "3", class:"answer-number" %>
+                  <%= f.label :physically_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :physically, "4", class:"answer-number" %>
+                  <%= f.label :physically_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :physically, "5", class:"answer-number" %>
+                  <%= f.label :physically_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q6. 力に自信がある</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :muscle, "1", class:"answer-number" %>
+                  <%= f.label :muscle_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :muscle, "2", class:"answer-number" %>
+                  <%= f.label :muscle_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :muscle, "3", class:"answer-number" %>
+                  <%= f.label :muscle_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :muscle, "4", class:"answer-number" %>
+                  <%= f.label :muscle_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :muscle, "5", class:"answer-number" %>
+                  <%= f.label :muscle_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q7. 頭を使った作業が好き</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :intelligence, "1", class:"answer-number" %>
+                  <%= f.label :intelligence_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :intelligence, "2", class:"answer-number" %>
+                  <%= f.label :intelligence_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :intelligence, "3", class:"answer-number" %>
+                  <%= f.label :intelligence_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :intelligence, "4", class:"answer-number" %>
+                  <%= f.label :intelligence_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :intelligence, "5", class:"answer-number" %>
+                  <%= f.label :intelligence_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q8. 慎重に考えてから行動するタイプである</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :careful, "1", class:"answer-number" %>
+                  <%= f.label :careful_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :careful, "2", class:"answer-number" %>
+                  <%= f.label :careful_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :careful, "3", class:"answer-number" %>
+                  <%= f.label :careful_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :careful, "4", class:"answer-number" %>
+                  <%= f.label :careful_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :careful, "5", class:"answer-number" %>
+                  <%= f.label :careful_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q9. あまり他人に指摘されたり指図されるのは好きではない</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :pride, "1", class:"answer-number" %>
+                  <%= f.label :pride_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :pride, "2", class:"answer-number" %>
+                  <%= f.label :pride_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :pride, "3", class:"answer-number" %>
+                  <%= f.label :pride_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :pride, "4", class:"answer-number" %>
+                  <%= f.label :pride_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :pride, "5", class:"answer-number" %>
+                  <%= f.label :pride_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q10. 自分のやり方が正しいと思ったらそれを貫き通す方だ</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :picky, "1", class:"answer-number" %>
+                  <%= f.label :picky_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :picky, "2", class:"answer-number" %>
+                  <%= f.label :picky_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :picky, "3", class:"answer-number" %>
+                  <%= f.label :picky_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :picky, "4", class:"answer-number" %>
+                  <%= f.label :picky_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :picky, "5", class:"answer-number" %>
+                  <%= f.label :picky_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q11. 狭い場所が苦手</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :narrow, "1", class:"answer-number" %>
+                  <%= f.label :narrow_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :narrow, "2", class:"answer-number" %>
+                  <%= f.label :narrow_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :narrow, "3", class:"answer-number" %>
+                  <%= f.label :narrow_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :narrow, "4", class:"answer-number" %>
+                  <%= f.label :narrow_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :narrow, "5", class:"answer-number" %>
+                  <%= f.label :narrow_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q12. 汚れるのが苦手</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :dirt, "1", class:"answer-number" %>
+                  <%= f.label :dirt_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dirt, "2", class:"answer-number" %>
+                  <%= f.label :dirt_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dirt, "3", class:"answer-number" %>
+                  <%= f.label :dirt_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dirt, "4", class:"answer-number" %>
+                  <%= f.label :dirt_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :dirt, "5", class:"answer-number" %>
+                  <%= f.label :dirt_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q13. 高いところが苦手</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :high, "1", class:"answer-number" %>
+                  <%= f.label :high_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :high, "2", class:"answer-number" %>
+                  <%= f.label :high_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :high, "3", class:"answer-number" %>
+                  <%= f.label :high_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :high, "4", class:"answer-number" %>
+                  <%= f.label :high_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :high, "5", class:"answer-number" %>
+                  <%= f.label :high_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="form-field">
+          <div class="device-inner">
+            <div class="question-field">
+              <p>Q14. 物を壊すことに快感を感じる</p>
+            </div>
+            <div class="apply-field">
+              <div class="not-apply">
+                <p>当てはまらない</p>
+              </div>
+              <div class="apply">
+                <p>当てはまる</p>
+              </div>
+            </div>
+            <div class="answer-field">
+              <div class="col-6">
+                  <%= f.radio_button :destruction, "1", class:"answer-number" %>
+                  <%= f.label :destruction_1, 1, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :destruction, "2", class:"answer-number" %>
+                  <%= f.label :destruction_2, 2, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :destruction, "3", class:"answer-number" %>
+                  <%= f.label :destruction_3, 3, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :destruction, "4", class:"answer-number" %>
+                  <%= f.label :destruction_4, 4, class:"label-number" %>
+              </div>
+              <div class="col-6">
+                  <%= f.radio_button :destruction, "5", class:"answer-number" %>
+                  <%= f.label :destruction_5, 5, class:"label-number" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sindanbotan">
+        <%= f.submit "get" %>
+      </div>
+    <% end %>
+  </div>
+</div>
