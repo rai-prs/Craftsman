@@ -1,4 +1,5 @@
 <div class="top">
+  <%= render 'shared/header' %>
   <div class="container top-form">
     <%= form_with model: @diagnosis, local: true do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
@@ -279,7 +280,7 @@
         <div class="form-field">
           <div class="device-inner">
             <div class="question-field">
-              <p>Q8. 慎重に考えてから行動するタイプである</p>
+              <p>Q8. 考えるよりも先に行動するタイプである</p>
             </div>
             <div class="apply-field">
               <div class="not-apply">
@@ -357,7 +358,7 @@
         <div class="form-field">
           <div class="device-inner">
             <div class="question-field">
-              <p>Q10. 自分のやり方が正しいと思ったらそれを貫き通す方だ</p>
+              <p>Q10. 納得できるまで何度でもやり直すタイプである</p>
             </div>
             <div class="apply-field">
               <div class="not-apply">

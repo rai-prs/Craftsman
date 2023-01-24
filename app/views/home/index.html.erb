@@ -1,6 +1,17 @@
 <div class="top">
   <div class="top-main">
-    <h1>Home#index</h1>
-    <p>Find me in app/views/users/index.html.erb</p>
+    <%= render 'shared/header' %>
+    <div class="top-flame">
+      <p>あなたの職人度を診断します</p>
+      <% if user_signed_in? %>
+        <%= link_to new_diagnosis_path do %>
+          <button class= "btn-link" >診断する</button>
+        <% end %>
+      <% else %>
+        <%= link_to users_guest_sign_in_path do %>
+          <button class= "btn-link" >Guest Login</button>
+        <% end %>
+      <% end %>
+    </div>
   </div>  
 </div>

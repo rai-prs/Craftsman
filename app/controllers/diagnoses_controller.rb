@@ -9,6 +9,21 @@ class DiagnosesController < ApplicationController
 
   def show
     @diagnosis = current_user.diagnoses.find(params[:id])
+    @craftsmanship = (@diagnosis.communication.to_i + @diagnosis.planning.to_i + @diagnosis.dexterous.to_i + @diagnosis.tidy.to_i + @diagnosis.physically.to_i + @diagnosis.muscle.to_i + @diagnosis.intelligence.to_i + @diagnosis.pride.to_i + @diagnosis.picky.to_i) * 2.4 - @diagnosis.destruction.to_i * 3 - @diagnosis.narrow.to_i - @diagnosis.dirt.to_i - @diagnosis.high.to_i - @diagnosis.careful.to_i * 2
+    gon.communication = @diagnosis.communication
+    gon.planning = @diagnosis.planning
+    gon.dexterous = @diagnosis.dexterous
+    gon.tidy = @diagnosis.tidy
+    gon.physically = @diagnosis.physically
+    gon.muscle = @diagnosis.muscle
+    gon.intelligence = @diagnosis.intelligence
+    gon.careful = @diagnosis.careful
+    gon.pride = @diagnosis.pride
+    gon.picky = @diagnosis.picky
+    gon.destruction = @diagnosis.destruction
+    gon.narrow = @diagnosis.narrow
+    gon.dirt = @diagnosis.dirt
+    gon.high = @diagnosis.high
   end
 
   def create

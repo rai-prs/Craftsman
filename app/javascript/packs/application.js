@@ -7,7 +7,16 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { createApp } from 'vue'
+import App from '../app.vue'
+import { router } from'./router.js'
+
+require('./graph')
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+const app = createApp(App);
+app.use(router);
+app.mount('#app');

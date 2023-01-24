@@ -1,22 +1,29 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+
+
+
+
 export default {
-  data: function () {
+  name: 'app',
+  created() {
+    console.log('** App Created!! **') // createの確認用
+  },
+  mounted() {
+    console.log('-- App Mounted!! --') // mountedの確認用
+  },
+  data() {
     return {
-      message: "Hello Vue!"
+      title: 'Router'
     }
   }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>

@@ -1,4 +1,5 @@
 <div class="top">
+  <%= render 'shared/header' %>
   <div class="container top-form">
     <div class="text-signup"><span class="text-s">L</span>ogIn</div>
     <div class="form-container">
@@ -48,7 +49,7 @@
             <div class= "form-actions">
               <div class= "form-link-log">
                 <%= link_to users_guest_sign_in_path, method: :post do %>
-                  <button class= "guest-log" >Guest Login</button>
+                  <button class= "btn-link" >Guest Login</button>
                 <% end %>
               </div>
               <div class="actions">

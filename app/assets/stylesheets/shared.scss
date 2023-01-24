@@ -30,3 +30,35 @@
     padding: 5px;
   }
 }
+
+header {
+  width: 100%;
+  height: 75px;
+  padding: 4px 30px;
+
+  .header-inner {
+    display: flex;
+
+    .header-left-nav {
+      margin: 10px 0px 0px 0px;
+
+      .title {
+        color: black;
+        font-family: 'Sacramento', cursive;
+
+        &:hover {
+          cursor: pointer;
+          color: orange;
+          opacity: .7;
+        }
+      }
+    }
+
+    .header-right-nav {
+      margin-top: 10px;
+      margin-left: auto;
+
+      
+    }
+  }
+}
