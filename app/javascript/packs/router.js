@@ -1,16 +1,15 @@
-
-import { createRouter, createWebHistory} from 'vue-router'
+import Vue from 'vue'
+import Router from 'vue-router'
 import UsersNewPage from "../pages/UsersNewPage"
+import Home from "../pages/Home"
 
 Vue.use(Router)
 
 
-const routes = [
-  { path: '/', component: Index },
-  { path: '/users/sign_up', component: UsersNewPage },
-]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
+export default new Router({
+  name: "Router",
+  mode: 'history',
+  routes: [
+    
+  ]
 })

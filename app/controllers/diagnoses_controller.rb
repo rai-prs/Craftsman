@@ -32,7 +32,7 @@ class DiagnosesController < ApplicationController
       flash[:notice] = "診断が完了しました"
       redirect_to diagnosis_path(@diagnosis.id)
     else
-      flash[:notice] = "診断出来ませんでした"
+      flash[:notice] = "全ての項目をチェックしてください"
       redirect_to :action => "new"
     end
   end

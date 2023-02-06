@@ -31,8 +31,8 @@
     display: none;
 
     &:checked + label {
-      background-color: rgb(201, 200, 200);
-      border: 1px solid rgb(201, 200, 200);
+      background-color: rgba(255, 166, 0, 0.548);
+      border: 1px solid rgba(255, 166, 0, 0.548);
     }
   }
 
@@ -70,4 +70,28 @@
   font-size: .9rem;
   margin: 20px 20px;
   text-align: left;
+}
+
+.question-submit-field {
+  text-align: center;
+  
+  .btn-diagnosis {
+    border-radius: 30px;
+    background: transparent;
+    font-weight: bolder;
+    font-size: 1.1rem;
+  }
+
+  .btn-diagnosis-hover:hover {
+    cursor: pointer;
+    color: orange;
+    background: black;
+    opacity: .7;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #afafaf;
+    margin-top: 20px;
+  }
 }
