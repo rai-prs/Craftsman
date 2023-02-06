@@ -12,14 +12,6 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 0px;
-
-  .not-apply {
-    
-  }
-
-  .apply {
-    
-  }
 }
 
 .answer-field {
@@ -93,5 +85,20 @@
     font-size: 1rem;
     color: #afafaf;
     margin-top: 20px;
+  }
+}
+
+.top-button {
+  text-align: end;
+
+  button {
+    border-radius: 30px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: orange;
+    background: black;
+    opacity: .7;
   }
 }

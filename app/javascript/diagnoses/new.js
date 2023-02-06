@@ -45,7 +45,11 @@ document.addEventListener("turbolinks:load", () => {
             diagnosis_submit.classList.add('btn-diagnosis-hover');
           }
         }
-      }
+      },
+
+      onClick: function() {
+        scrollTo(0, 0);
+      },
     },
 
     computed: {
