@@ -1,4 +1,41 @@
-document.addEventListener('turbolinks:load', () => {
+import Vue from 'vue/dist/vue.esm'
+
+document.addEventListener("turbolinks:load", () => {
+  new Vue({
+    el: '#diagnoses-show',
+    data: {
+      
+    },
+
+    methods: {
+      
+      onChange: function() {
+        const construction_container = document.getElementById("construction-container");
+        const appropriate_field = document.getElementById("appropriate-field");
+        const result = document.getElementById("result");
+        const construction_site = document.getElementById("construction-site");
+        const appropriate = document.getElementById("appropriate");
+        const radar_field = document.getElementById("radar-field")
+
+        console.log(construction_container)
+        if (result.checked) {
+          construction_container.style.display = "none";
+          radar_field.style.display = "";
+          appropriate_field.style.display = "none"
+        }
+        if (construction_site.checked) {
+          construction_container.style.display = "block";
+          radar_field.style.display = "none";
+          appropriate_field.style.display = "none"
+        }
+        if (appropriate.checked) {
+          appropriate_field.style.display = "block"
+          radar_field.style.display = "none";
+          construction_container.style.display = "none";
+        }
+      }
+    }
+  })
   const radarLabel = ["職人度", "体力", "器用度", "親方度", "環境適正", "知力"];
   const communication = gon.communication;
   const planning = gon.planning;
@@ -67,5 +104,4 @@ document.addEventListener('turbolinks:load', () => {
     data: radarChartData,
     options: radarChartOption,
   });
-  console.log(craftsman);
 });

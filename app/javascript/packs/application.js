@@ -11,10 +11,10 @@ import Vue from 'vue'
 import App from '../app.vue'
 import Router from'./router.js'
 
-require('./graph')
 require('../devise/registrations_new')
 require('../devise/sessions_new')
 require('../diagnoses/new')
+require('../diagnoses/show')
 
 Rails.start()
 Turbolinks.start()

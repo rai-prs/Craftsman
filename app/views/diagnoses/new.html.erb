@@ -551,7 +551,7 @@
       </div>
       <div class="question-submit-field">
         <%= f.submit "診断", class: "btn-diagnosis", id: "diagnosis-submit", disabled: true %>
-        <p>※全ての項目をチェックしてください</p>
+        <p id="warning">※未回答の項目があります</p>
       </div>
     <% end %>
     <div  class="top-button">
