@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe "User" do
+  describe "User-model" do
     let(:user) { create(:user) }
 
     it "名前、メール、パスワードがある場合、有効である" do
