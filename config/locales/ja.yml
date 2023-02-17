@@ -25,8 +25,25 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        name: 名前
+      diagnosis:
+        communication: コミュニケーション
+        planning: 計画
+        dexterous: 器用
+        tidy: 几帳面
+        physically: 体力
+        muscle: 筋力
+        intelligence: 知力
+        careful: 慎重
+        pride: プライド
+        picky: こだわり
+        destruction: 破壊
+        narrow: 狭い
+        dirt: 汚い
+        high: 高い
     models:
       user: ユーザー
+      diagnosis: 診断
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -141,3 +158,6 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+      record_invalid: "バリデーションに失敗しました: %{errors}"
+      taken: はすでに存在します
+      blank: を入力してください
