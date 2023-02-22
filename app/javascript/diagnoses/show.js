@@ -50,12 +50,17 @@ document.addEventListener("turbolinks:load", () => {
   const narrow = gon.narrow;
   const dirt = gon.dirt;
   const high = gon.high;
-  const craftsman = parseInt(communication) + parseInt(planning);
+  const destruction= gon.destruction;
+  let craftsman = ((parseInt(communication) + parseInt(planning) + parseInt(physically) + parseInt(muscle) + parseInt(intelligence) + parseInt(dexterous) + parseInt(tidy) + parseInt(pride) + parseInt(picky)) * 2.4 - parseInt(destruction) * 3 - parseInt(narrow) - parseInt(dirt) - parseInt(high) - parseInt(careful) * 2) / 10;
   const stamina = parseInt(physically) + parseInt(muscle);
   const intellect = parseInt(intelligence) - parseInt(careful) + 6;
   const dexterity = parseInt(dexterous) + parseInt(tidy);
   const master = parseInt(pride) + parseInt(picky);
   const breaking = (15 - parseInt(narrow) - parseInt(dirt) - parseInt(high)) * 0.82;
+
+  if (craftsman <= 0) {
+    craftsman = 0
+  }
 　　　　
   const radarChartData = {
     labels: radarLabel,
