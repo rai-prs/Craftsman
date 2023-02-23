@@ -220,3 +220,15 @@
     opacity: .7;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .top-form {
+    .form-container {
+      .form-field {
+        .device-inner {
+          padding: 0px;
+        }
+      }
+    }
+  }
+}

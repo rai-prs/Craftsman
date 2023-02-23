@@ -1,24 +1,50 @@
-# README
+# CRAFTSMAN
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## **サービス概要**
 
-Things you may want to cover:
+**自分が建築現場の職人に向いているか診断しよう**
 
-* Ruby version
+建築現場に興味のある人が自分が職人に向いているかどうかや、自分に向いている現場職を診断することができるサービスです。
 
-* System dependencies
+<br>
 
-* Configuration
+### **作成した経緯**
 
-* Database creation
+実際に建築現場で7年ほど働いていたのですが、人手不足にも関わらず、働いている職人さんの平均年齢が高く若者が少ないという状況でした。  
+さらに新しい人が入ってきてもすぐに辞めてしまうと言う状態で、その原因は会社の居心地、人間関係、その現場職が自分に合っているかどうか、そもそも職人に向いているかなど様々な原因があると思いますが、その中でもまず働く前に自分が職人に向いているかどうか、どんな現場職に向いているかを知ることで職人の定着化を促進することができるのではないかと思い作成しました。
 
-* Database initialization
+<br>
 
-* How to run the test suite
+## **使い方**
 
-* Services (job queues, cache servers, search engines, etc.)
+### **職人適正診断**
 
-* Deployment instructions
+トップページの「Guest Login」ボタンを押してゲストユーザーとしてログインした後、「診断する」ボタンを押下すると質問項目が表示されます。  
+回答は「５」に近いほど「当てはまる」、「１」に近いほど「当てはまらない」という形で回答していきます。
 
-* ...
+![rai](https://user-images.githubusercontent.com/106637303/220875592-725f0a82-c597-466b-bd9c-ced829a30037.gif)
+
+<br>
+
+### **診断結果**
+
+全ての質問に回答し、「診断」ボタンを押すと診断結果が表示されます。  
+診断結果ページでは、職人度, 体力, 器用度, 親方度, 環境適正, 知力の項目からなるレーダーチャートと、職人適正、自分に合った適正現場職を確認することが出来ます。
+
+![craftsman_sample2](https://user-images.githubusercontent.com/106637303/220884912-f158b17d-6a88-4d11-92c9-0f1d1851bc1d.gif)
+
+<br>
+
+## **使用技術**
+
+* Ruby on Rails 6.1.7
+* vue.js
+
+### **使用した主なgem**
+
+* devise（ログイン）
+* bulma-rails(見た目を整える)
+
+### **使用した主なモジュール**
+
+* vue-chartjs（レーダーチャートの作成）
