@@ -5,7 +5,7 @@ orbs:
 jobs:
   rspec:
     docker:
-      - image: circleci/ruby:2.7.6-node-browsers
+      - image: circleci/ruby:2.7.6-browsers
     resource_class: small
     executor: ruby/default
     steps:
