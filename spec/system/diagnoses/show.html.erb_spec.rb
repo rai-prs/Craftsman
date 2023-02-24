@@ -7,7 +7,13 @@ RSpec.describe "diagnoses/show.html.erb", type: :system do
     before do
       sign_in diagnosis_success.user
       visit diagnosis_path(diagnosis_success)
-      @craftsmanship = (diagnosis_success.communication.to_i + diagnosis_success.planning.to_i + diagnosis_success.dexterous.to_i + diagnosis_success.tidy.to_i + diagnosis_success.physically.to_i + diagnosis_success.muscle.to_i + diagnosis_success.intelligence.to_i + diagnosis_success.pride.to_i + diagnosis_success.picky.to_i) * 2.4 - diagnosis_success.destruction.to_i * 3 - diagnosis_success.narrow.to_i - diagnosis_success.dirt.to_i - diagnosis_success.high.to_i - diagnosis_success.careful.to_i * 2
+      @craftsmanship = (diagnosis_success.communication.to_i + diagnosis_success.planning.to_i +
+                        diagnosis_success.dexterous.to_i + diagnosis_success.tidy.to_i +
+                        diagnosis_success.physically.to_i + diagnosis_success.muscle.to_i +
+                        diagnosis_success.intelligence.to_i + diagnosis_success.pride.to_i +
+                        diagnosis_success.picky.to_i) * 2.4 - diagnosis_success.destruction.to_i * 3 -
+                        diagnosis_success.narrow.to_i - diagnosis_success.dirt.to_i - diagnosis_success.high.to_i -
+                        diagnosis_success.careful.to_i * 2
     end
 
     it "診断結果のボタンをクリックした時レーダーチャートのみ表示されること" do
