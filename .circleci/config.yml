@@ -16,6 +16,9 @@ jobs:
           name: bundle install
           command: bundle install
       - run:
+          name: yarn Install
+          command: yarn install
+      - run:
           name: Database setup
           command: |
             bundle exec rails db:create
