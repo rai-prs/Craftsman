@@ -105,7 +105,7 @@ RSpec.describe "diagnoses/show.html.erb", type: :system do
 
       it "条件が一致している時に正しくテキストが表示されていること" do
         find('label[for=appropriate]').click
-        expect(page).to have_content "物を壊すことに抵抗感なないあなたは少し注意する必要があります"
+        expect(page).to have_content "物を壊すことに抵抗感を感じないあなたは少し注意する必要があります"
       end
     end
 
