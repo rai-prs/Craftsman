@@ -10,8 +10,8 @@ jobs:
     resource_class: small
     executor: ruby/default
     steps:
-      - browser-tools/install-browser-tools
       - checkout
+      - browser-tools/install-browser-tools
       - run: |
           google-chrome --109.0.5414.87
       - run:
