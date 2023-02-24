@@ -12,8 +12,6 @@ jobs:
     steps:
       - checkout
       - browser-tools/install-browser-tools
-      - run: |
-          google-chrome --109.0.5414.87
       - run:
           name: bundle install
           command: bundle install
