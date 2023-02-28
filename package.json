@@ -25,6 +25,6 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "node your-script.js"
+    "start": "node ."
 }
 }
