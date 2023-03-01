@@ -23,8 +23,5 @@
   },
   "engines": {
     "node": "16.x"
-  },
-  "scripts": {
-    "start": "node /usr/local/bin/node"
-}
+  }
 }
