@@ -141,9 +141,9 @@ RSpec.describe "diagnoses/show.html.erb", type: :system do
         visit diagnosis_path(diagnosis_craftsman72)
       end
 
-      it "優秀な職人の卵が正しく表示されること" do
+      it "優秀な職人の素質が正しく表示されること" do
         find('label[for=appropriate]').click
-        expect(page).to have_selector '.occupation', text: "優秀な職人の卵"
+        expect(page).to have_selector '.occupation', text: "優秀な職人の素質"
       end
     end
 
@@ -155,9 +155,9 @@ RSpec.describe "diagnoses/show.html.erb", type: :system do
         visit diagnosis_path(diagnosis_exists)
       end
 
-      it "平凡な職人の卵が正しく表示されること" do
+      it "平凡な職人の素質が正しく表示されること" do
         find('label[for=appropriate]').click
-        expect(page).to have_selector '.occupation', text: "平凡な職人の卵"
+        expect(page).to have_selector '.occupation', text: "平凡な職人の素質"
       end
     end
 
@@ -169,9 +169,9 @@ RSpec.describe "diagnoses/show.html.erb", type: :system do
         visit diagnosis_path(diagnosis_all1)
       end
 
-      it "劣等な職人の卵が正しく表示されること" do
+      it "劣等な職人の素質が正しく表示されること" do
         find('label[for=appropriate]').click
-        expect(page).to have_selector '.occupation', text: "劣等な職人の卵"
+        expect(page).to have_selector '.occupation', text: "劣等な職人の素質"
       end
 
       it "あなたに向いている現場職が見つかりませんでした。と言うテキストが正しく表示されること" do
