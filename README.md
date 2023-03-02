@@ -35,6 +35,25 @@
 
 <br>
 
+## **機能一覧**
+
+* 新規登録
+* ログイン
+* ゲストログイン
+* ログアウト
+* 診断
+* レーダーチャート
+
+<br>
+
+## **ER図**
+
+<br>
+
+<img width="396" alt="craftsman_erd" src="https://user-images.githubusercontent.com/106637303/222419427-567cc065-ca5e-4dfb-9a23-29eab7a820d5.png">
+
+<br>
+
 ## **使用技術**
 
 * Ruby on Rails 6.1.7
