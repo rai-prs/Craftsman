@@ -1,0 +1,68 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.4.0
+  browser-tools: circleci/browser-tools@1.1
+
+jobs:
+  rspec:
+    docker:
+      - image: cimg/ruby:2.7.6-browsers
+    resource_class: small
+    executor: ruby/default
+    steps:
+      - checkout
+      - browser-tools/install-browser-tools
+      - run:
+          name: bundle install
+          command: bundle install
+      - run:
+          name: yarn Install
+          command: yarn install
+      - run:
+          name: Database setup
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:migrate
+      - run:
+          name: Run rspec
+          command: bundle exec rspec
+
+  rubocop:
+    docker:
+      - image: cimg/ruby:2.7.6
+    resource_class: small
+    executor: ruby/default
+    steps:
+      - checkout
+      - run:
+          name: bundle install
+          command: bundle install
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop --require rubocop-airbnb
+
+  heroku_deploy:
+    docker:
+      - image: sue445/heroku-cli
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Deploy
+          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
+      - run:
+          name: Run config set ENV
+          command: heroku config:set --app $HEROKU_APP_NAME AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY AWS_REGION=$AWS_DEFAULT_REGION AWS_BUCKET=$AWS_DEFAULT_BUCKET
+      - run:
+          name: heroku run bin/rails db:migrate
+          command: heroku run bin/rails db:migrate --app $HEROKU_APP_NAME
+
+workflows:
+  build:
+    jobs:
+      - rspec
+      - rubocop
+      - heroku_deploy:
+          requires:
+            - rspec
+            - rubocop

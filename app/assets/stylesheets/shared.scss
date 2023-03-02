@@ -1,0 +1,77 @@
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.alert {
+  display: flex;
+  position: absolute;
+  top: 80px;
+  right: 150px;
+  background-image: linear-gradient(to right, orange 0%, orange 2%, rgb(133, 131, 131) 2%, rgb(133, 131, 131) 98%);
+  padding-left: 10px;
+  box-shadow: 0 0 8px gray;
+  border-radius: 5px;
+  color: white;
+  animation: fadein 10.5s ease both;
+
+  .i-check {
+    padding: 5px;
+  }
+}
+
+header {
+  width: 100%;
+  height: 75px;
+  padding: 4px 30px;
+
+  .header-inner {
+    display: flex;
+
+    .header-left-nav {
+      margin: 10px 0px 0px 0px;
+
+      .title {
+        color: black;
+        font-family: 'Sacramento', cursive;
+
+        &:hover {
+          cursor: pointer;
+          color: orange;
+          opacity: .7;
+        }
+      }
+    }
+
+    .header-right-nav {
+      margin-top: 10px;
+      margin-left: auto;
+
+      
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  background-color: gray;
+  height: 40px;
+
+  .footer-inner {
+    padding-top: 10px;
+
+    p {
+      color: #f3f3f3;
+    }
+  }
+}

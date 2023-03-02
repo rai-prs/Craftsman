@@ -1,0 +1,57 @@
+.top {
+
+  .top-main {
+    background-size: cover;
+    width: 100%;
+    background-image: url('small-factory-645623_1920.jpg');
+    background-position: center;
+    height: 1000px;
+
+    header {
+      .header-inner {
+        .header-left-nav {
+          .title {
+            color: #d3d3d3;
+
+            &:hover {
+              cursor: pointer;
+              color: orange;
+              opacity: .7;
+            }
+          }
+        }
+      }
+    }
+
+    .top-flame {
+      width: 80%;
+      margin: auto;
+      padding-top: 150px;
+      text-align: center;
+
+      p {
+        font-size: calc(1.3rem + ((1vw - 3.75px) * 0.789));
+        color: #d3d3d3;
+        font-weight: normal;
+        font-family: serif;
+        margin-bottom: 50px;
+      }
+    }
+
+    .btn-link {
+      border-radius: 30px;
+      border-color: #d3d3d3;
+      background: transparent;
+      font-weight: bolder;
+      color: #d3d3d3;
+    
+      &:hover {
+        cursor: pointer;
+        color: orange;
+        background: black;
+        opacity: .7;
+      }
+    }
+  }
+}
+

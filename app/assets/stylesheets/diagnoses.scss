@@ -1,0 +1,153 @@
+// Place all the styles related to the diagnoses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.question-field {
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  padding: 5px 0px;
+}
+
+.apply-field {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+
+.answer-field {
+  display: flex;
+  justify-content:  space-around;
+  padding: 10px;
+
+  .answer-number {
+    display: none;
+
+    &:checked + label {
+      background-color: rgba(255, 166, 0, 0.548);
+      border: 1px solid rgba(255, 166, 0, 0.548);
+    }
+  }
+
+  .label-number {
+    display: block;
+    border: 1px solid rgb(241, 238, 238);
+    border-radius: 50px;
+    width: 28px;
+    cursor: pointer;
+    background-color: rgb(241, 238, 238);
+    box-shadow: rgba(0, 0, 0, 12) 0px 3px 10px -5px;
+
+    &:hover {
+      background-color: rgb(218, 218, 218);
+      border: 1px solid rgb(218, 218, 218);
+    }
+  }
+}
+
+.craftsmanship {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 50px 0px;
+}
+
+#construction-container {
+  display: none;
+
+  .occupation-explanation {
+    font-size: .9rem;
+    margin: 20px 20px;
+    text-align: left;
+  }
+
+  .you-construction {
+    text-align: center;
+    padding: 20px 0px;
+
+    p {
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  }
+}
+
+.occupation {
+  font-size: 1.5rem;
+  font-weight: 200;
+  border-bottom: 5px solid rgb(0, 0, 0);
+  margin-bottom: 20px;
+}
+
+
+.question-submit-field {
+  text-align: center;
+  
+  .btn-diagnosis {
+    border-radius: 30px;
+    background: transparent;
+    font-weight: bolder;
+    font-size: 1.1rem;
+  }
+
+  .btn-diagnosis-hover:hover {
+    cursor: pointer;
+    color: orange;
+    background: black;
+    opacity: .7;
+  }
+
+  #warning {
+    font-size: 1rem;
+    color: #dd2c00;
+    margin-top: 20px;
+  }
+}
+
+.top-button {
+  text-align: end;
+
+  button {
+    border-radius: 30px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: orange;
+    background: black;
+    opacity: .7;
+  }
+}
+
+.switching-button {
+  text-align: center;
+  padding-bottom: 10px;
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked + label {
+      background-color: rgb(255, 212, 172);
+      border: 1px solid rgba(255, 231, 185, 0.548);
+      font-weight: bolder;
+      color: black;
+    }
+  }
+
+  label {
+    border: 1px solid rgb(241, 238, 238);
+    cursor: pointer;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 12) 0px 3px 10px -5px;
+    font-size: .9rem;
+    padding: 5px;
+
+    &:hover {
+      background-color: rgb(218, 218, 218);
+      border: 1px solid rgb(218, 218, 218);
+    }
+  }
+}
+
+#appropriate-field {
+  display: none;
+}

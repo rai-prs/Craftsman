@@ -1,0 +1,21 @@
+<header>
+  <div class="header-inner">
+    <div class="header-left-nav">
+      <%= link_to "CraftsMan", root_path, class: "mx-3 link title" %>
+    </div>
+    <div class="header-right-nav">
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "dropdown__item-link" do %>
+          <button class= "btn-link" >ログアウト</button>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button class= "btn-link" >ログイン</button>
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+          <button class= "btn-link" >新規登録</button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</header>

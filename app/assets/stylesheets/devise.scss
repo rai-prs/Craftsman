@@ -1,0 +1,234 @@
+@keyframes rumble {
+  0%   { transform:translate(0); }
+  25%  { transform:translate(3px); }
+  50%  { transform:translate(0); }
+  75%  { transform:translate(-3px); }
+  100% { transform:translate(0); }
+}
+
+.top {
+  background-color: #f3f3f3;
+}
+
+.top-form {
+  padding-bottom: 100px;
+
+  .text-signup {
+    font-size: 3.5rem;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    font-family: "Caveat",cursive!important;
+    margin-bottom: 50px;
+
+    .text-s {
+      font-size: 6rem;
+    }
+  }
+
+  .form-container {
+    padding-bottom: 50px;
+
+    .form-field {
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      padding: 24px;
+      margin: 0px auto;
+      background-color: white;
+      border-radius: 24px;
+      box-shadow: rgba(0, 0, 0, 12) 0px 6px 15px -3px;
+    
+      .device-inner {
+        padding: 0px 70px;
+
+        .log_remember {
+          margin: 20px;
+        }
+      }
+    }
+
+    .explanation-field {
+      width: 80%;
+      max-width: 1000px;
+      text-align: center;
+      padding: 24px;
+      margin: 0px auto;
+      background-color: white;
+      border-radius: 24px;
+      box-shadow: rgba(0, 0, 0, 12) 0px 6px 15px -3px;
+    }
+  }
+  
+}
+
+.field {
+  margin: 5px 0;
+  position: relative;
+  display: flex;
+
+  .input-icon {
+    padding-top: 10px;
+    margin-right: 15px;
+    color: currentColor;
+  }
+
+  .input-slot {
+    flex-grow: 1;
+
+    .input-messages {
+      width: 100%;
+      height: 40px;
+
+      .text-warning {
+        font-size: 12px;
+      }
+    }
+
+    .input-field {
+      width: 100%;
+      position: relative;
+
+      &:after {
+        background-color: currentColor;
+        border-color: currentColor;
+        border-style: solid;
+        border-width: thin 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        bottom: -1px;
+        content: "";
+        left: 0;
+        position: absolute;
+        transition: .3s cubic-bezier(.25,.8,.5,1);
+        width: 100%;
+      }
+
+      .form-input {
+        width: 100%;
+        font-size: 16px;
+        font-family: initial !important;
+        border: none;
+        outline: none;
+        color: currentColor;
+        border-bottom: 1px solid currentColor;
+      }
+
+      input {
+        height: 32px;
+        transition: all .3s;
+      
+        &:focus {
+          transition: all .3s;
+          color: black;
+      
+          & + label {
+            transform: translateY(-25px) scale(.8);
+            color: currentColor;
+          }
+        }
+      }
+  
+      &:focus-within {
+        color: currentColor;
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+
+      label {
+        cursor: text;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        background: #fff;
+        color: currentColor;
+        font-family: sans-serif;
+        transform-origin: left;
+        transform: translateY(0);
+        transition: all .15s;
+
+        .formLabel {
+          animation:rumble .1s .3s linear;
+        }
+      
+        &.completed {
+          color: currentColor;
+          transform: translateY(-25px) scale(.8);
+        }
+      }
+
+      .field-icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &:focus-within {
+    color: orange;
+  }
+}
+
+.field1 {
+  color: #dd2c00;
+  &:focus-within {
+    color: #dd2c00;
+  }
+}
+
+.form-actions {
+  display: flex;
+  padding: 0 20px;
+
+  .form-sign-up {
+    flex-grow: 1;
+    margin: 0 20px;
+    border-radius: 30px;
+    background: transparent;
+    font-weight: bolder;
+  }
+
+  .submitHover {
+    &:hover {
+      cursor: pointer;
+      color: orange;
+      background: black;
+      opacity: .7;
+    }
+  }
+
+  .form-link-log {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+}
+
+.btn-link {
+  border-radius: 30px;
+  background: transparent;
+  font-weight: bolder;
+
+  &:hover {
+    cursor: pointer;
+    color: orange;
+    background: black;
+    opacity: .7;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .top-form {
+    .form-container {
+      .form-field {
+        .device-inner {
+          padding: 0px;
+        }
+      }
+    }
+  }
+}

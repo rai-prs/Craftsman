@@ -1,0 +1,283 @@
+<% content_for(:title) do %>結果<% end %>
+<%= Gon::Base.render_data %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="top" id="diagnoses-show">
+  <%= render 'shared/header' %>
+  <div class="container top-form">
+    <div class="craftsmanship">
+      <p>あなたの職人適正は<%= @craftsmanship.floor %>％です</p>
+    </div>
+    <div class="switching-button">
+      <input type="radio" id="result" name="switching-button" checked @change="onChange">
+      <label for="result">診断結果</label>
+      <input type="radio" id="appropriate" name="switching-button" @change="onChange">
+      <label for="appropriate">職人適正</label>
+      <input type="radio" id="construction-site" name="switching-button" @change="onChange">
+      <label for="construction-site">適正現場</label>
+    </div>
+    <div class="form-container" id="radar-field">
+      <div class="form-field">
+        <canvas id="radar-chart"></canvas>
+      </div>
+    </div>
+    <div id="construction-container">
+      <div class="you-construction">
+        <p>あなたに向いている現場職</p>
+      </div>
+      <% if @diagnosis.destruction.to_i >= 5 && @diagnosis.physically.to_i >= 3 && @diagnosis.muscle.to_i >= 3 %>
+        <div class="form-container">
+          <div class="explanation-field">
+            <div class="device-inner">
+              <p class="occupation">解体屋</p>
+              <p class="occupation-explanation">重機を使って建物を一気に取り壊していく解体屋は、物を壊すことに抵抗感を感じないあなたに向いているでしょう。家やビル、マンションなどを取り壊す経験は、解体屋だからこそできる仕事であり、大きな建物を壊すことで溜まっていたストレスを発散できることがあります。また、解体した廃材をトラックまで持ち運んだり、手作業で行わなければならない部分もあり体力的にきついこともありますが、体力や力のあるあなたにぴったりな仕事でしょう。</p>
+            </div>
+            <%= image_tag "cancellation-1651305_1920 2.jpg" %>
+          </div>
+        </div>
+        <% else if @diagnosis.physically.to_i >= 3 && @diagnosis.communication.to_i >= 5 && @diagnosis.picky.to_i >= 5 && @diagnosis.tidy.to_i >= 5 && @diagnosis.intelligence.to_i >= 4 && @diagnosis.dexterous.to_i >= 5 && @diagnosis.planning.to_i >= 4 && @diagnosis.careful.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">電気工事士</p>
+                <p class="occupation-explanation">協調性が高く、几帳面なあなたは電気工事士に向いているでしょう。電気工事は少しの間違いが大事故につながる可能性があります。配線や絶縁処理、接続などの細かい仕事が多いですが、丁寧、几帳面な性格の人なら正確かつ安全に行うことができるでしょう。また電気工事の作業は、周りの作業員や先輩との連携も必要です。自分一人で作業するのではなく、チームワークを大切にしながら、適切なコミュニケーションを取って作業を進められる人が向いています。</p>
+              </div>
+              <%= image_tag "repair-7391472_1920 2.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% electricity = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 4 && @diagnosis.muscle.to_i >= 4 && @diagnosis.dirt.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">土工事職人</p>
+                <p class="occupation-explanation">体力や力に自信のあるあなたはあなたは土工事職人が向いているでしょう。一般的に土工の仕事内容としては、残土・客土工事、地山の掘削補助、埋め戻し、盛土、コンクリート打設などがあります。特に新人の頃は資材の運搬や、コンクリートをネコで運ぶなどの、体力が必要な補助業務をメインに行います。また、機械土工は重機を運転することで、土を運んだり瓦礫を撤去したりなど、人力では到底難しい作業を行います。重機に興味があれば挑戦してみるといいでしょう。</p>
+              </div>
+              <%= image_tag "cat-2579431_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% earthwork = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 4 && @diagnosis.muscle.to_i >= 4 && @diagnosis.high.to_i <= 2 && @diagnosis.destruction.to_i <= 4 && @diagnosis.dexterous.to_i >= 3 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">鳶職人</p>
+                <p class="occupation-explanation">高いところが苦手ではなく、体力や力に自信のあるあなたはあなたは鳶職人が向いているでしょう。鳶職の仕事はかなりハードで足場の組み立てをするには資材を運んだり、高い場所での作業をするので1日中動きっぱなしです。また、鳶職人の仕事は足場を組んで高い場所でする作業が多いです。現場によっては足がすくんでしまうような高さでの作業もあるので、高所恐怖症でない事が必須の要素です。</p>
+              </div>
+              <%= image_tag "bristol-7235782_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% steeplejack = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 3 && @diagnosis.communication.to_i >= 4 && @diagnosis.tidy.to_i >= 4 && @diagnosis.high.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">鉄筋工</p>
+                <p class="occupation-explanation">細かい部分まで手を抜かず、丁寧な性格のあなたは鉄筋工に向いているでしょう。鉄筋工事は、建物の骨になる鉄筋を組み立てる工事です。建物の頑丈さに関わる工事なので、施工図通りに作業を行う必要性があります。丁寧で繊細な作業が求められるため、必ず活躍することができるでしょう。</p>
+              </div>
+              <%= image_tag "building-3331421_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% rebar = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 3 && @diagnosis.dexterous.to_i >= 5 && @diagnosis.tidy.to_i >= 4 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">鍛治工</p>
+                <p class="occupation-explanation">手先が器用なあなたは、鍛治工に向いているでしょう。鍛冶工事は鉄骨をガス溶接やアーク溶接といった手法で変形、加工させ製品を作る仕事です。何よりも経験が大事になる要素が多いですが、手先が器用だと熟練の職人になるために有利な武器になるでしょう。</p>
+              </div>
+              <%= image_tag "worker-6602093_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% blacksmith = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 4 && @diagnosis.muscle.to_i >= 4 && @diagnosis.tidy.to_i >= 5 && @diagnosis.dirt.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">型枠大工</p>
+                <p class="occupation-explanation">体力、力ともに十分にあり、職人としての必要な要素のきめ細かさを持ち合わせているあなたは、型枠大工に向いているでしょう。型枠大工は、コンクリートの型を作る仕事です。仕事内容としては、型枠の搬入、型枠の移動、墨出し、型枠建て込み、型枠支保工、型枠解体、型枠の搬出などがあります。この一連の作業の中でミスがあると凸凹のコンクリートができてしまったりするため、きっちり性格に作業できる要素が必要な型枠大工があなたにぴったりでしょう。</p>
+              </div>
+              <%= image_tag "to-build-3354036_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% formwork = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 4 && @diagnosis.dexterous.to_i >= 4 && @diagnosis.intelligence.to_i >= 4 && @diagnosis.high.to_i <= 2 && @diagnosis.careful.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">板金工</p>
+                <p class="occupation-explanation">体力があり、手先が器用かつ、高いところが苦手ではないあなたは板金工に向いているでしょう。板金工の仕事は建物の屋根や外壁を仕上げていくのがメインなので、必然的に高所での作業が多くなります。速やかに移動しながら施工しなければいけないので、高所での作業が出来なければなりません。また、板金工は建築物によって変わる多種多様な壁や屋根に雨の侵入を防ぐために金属板をきれいに仕上げる必要があります。細かい作業が得意で手先が器用なあなたにぴったりな仕事でしょう。</p>
+              </div>
+              <%= image_tag "work-511841_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% sheet_metal = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 3 && @diagnosis.dexterous.to_i >= 5 && @diagnosis.tidy.to_i >= 4 && @diagnosis.communication.to_i >= 4 && @diagnosis.picky.to_i >= 4 && @diagnosis.dirt.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">左官職人</p>
+                <p class="occupation-explanation">手先が器用で粘り強い性格のあなたは、左官職人に向いているでしょう。左官は、高い技術を必要とする専門性の高い職業です。壁や床に対して均一に材料を塗り拡げるだけでも、かなりハイレベルな技術が必要です。左官が身につけなければならない技は、膨大な数があり、現役でいるかぎり腕を磨きつづけなければなりません。ひとつの道を突き詰めることに喜びを見出せる、職人気質のあなたにぴったりな仕事でしょう。</p>
+              </div>
+              <%= image_tag "silhouette-4644655_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% plasterer = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 3 && @diagnosis.dexterous.to_i >= 5 && @diagnosis.tidy.to_i >= 5 && @diagnosis.picky.to_i >= 4 && @diagnosis.intelligence.to_i >= 4 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">内装職人</p>
+                <p class="occupation-explanation">手先が器用かつ、職人向きなセンスを持っているあなたは、内装職人に向いているでしょう。内装工の仕事はその殆どが手作業で行われます。細かい作業が苦にならない要素や、室内の空間を美しく仕上げるため、自分の美的感覚やセンスも必要な要素になります。インテリアやデザインが好きなのであれば挑戦してみるといいでしょう。</p>
+              </div>
+              <%= image_tag "carpenter-3276186_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% interior = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 3 && @diagnosis.dexterous.to_i >= 4 && @diagnosis.tidy.to_i >= 5 && @diagnosis.picky.to_i >= 5 && @diagnosis.high.to_i <= 2 && @diagnosis.dirt.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">塗装職人</p>
+                <p class="occupation-explanation">几帳面で手先が器用かつ、こだわりが強い性格のあなたは、塗装職人に向いているでしょう。塗装というのはただ単に塗ればいいというわけではなく、美しい見た目になるように丁寧に仕上げる技術力が求められます。大雑把な性格の人よりも、手先が器用で細やかな作業が得意な人のほうが適任でしょう。また、美術的なセンスも必要とされるので、昔から絵を描くのが好きだった人や色彩のセンスがある人もその能力を発揮することができます。</p>
+              </div>
+              <%= image_tag "painting-924144_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% painting = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 3 && @diagnosis.dexterous.to_i >= 5 && @diagnosis.tidy.to_i >= 4 && @diagnosis.intelligence.to_i >= 4 && @diagnosis.planning.to_i >= 4 && @diagnosis.narrow.to_i <= 2 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">配管工</p>
+                <p class="occupation-explanation">真面目で忍耐力のあるあなたは、配管工に向いているでしょう。配管工が施工した配管の多くも、地中に埋められたり、建物の床下や天井裏に隠れたりして、普段人の目に触れることはありません。しかし、配管は私たちの生活になくてはならないものです。もしも故障や事故などが発生すれば、その被害は甚大なものとなってしまいます。そのため、配管工には確実かつ丁寧に仕事をすることが求められます。誰も見ていなくても決して手を抜かず、コツコツと地道な作業を続けられる、真面目な性格の人が向いているでしょう。</p>            </div>
+              <%= image_tag "plumbing-1103725_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% piping = "false" %>
+        <% end %>
+        <% if @diagnosis.physically.to_i >= 4  && @diagnosis.tidy.to_i >= 5 && @diagnosis.picky.to_i >= 5 && @diagnosis.destruction.to_i <= 4 %>
+          <div class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">外構職人</p>
+                <p class="occupation-explanation">体力があり、きっちりとした性格で、個性の強いあなたは外構職人に向いているでしょう。外構職人は敷地内にある住宅以外の構造物を、全て造る仕事と言っても過言ではないです。同じ工事内容でも依頼者や住宅によって毎回異なる工事が求められるので、あなたの個性を発揮することで唯一無二の遊び心のある外構に仕上げられることでしょう。</p>
+              </div>
+              <%= image_tag "brick-home-299771_1920.jpg" %>
+            </div>
+          </div>
+        <% else %>
+          <% exterior = "false" %>
+        <% end %>
+      <% end %>
+      <% if @diagnosis.physically.to_i <= 2 %>
+        <div  class="form-container">
+          <div class="explanation-field">
+            <div class="device-inner">
+              <p class="occupation">まずは体力をつけましょう</p>
+              <p>建設現場ではどの仕事も体力が必要であるため、少し体力をつける必要があります。仕事をしているうちに体力がつくこともあるためやる気があればまずは日雇などで働いてみるといいでしょう。</p>
+            </div>
+          </div>
+        </div>
+        <% else if piping == "false" && exterior == "false" && painting == "false" && interior == "false" && plasterer == "false" && piping == "false" && sheet_metal == "false" && formwork == "false" && blacksmith == "false" && rebar == "false" && steeplejack == "false" && earthwork == "false" && electricity == "false" %>
+          <div  class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">あなたに向いている現場職が見つかりませんでした。</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="appropriate-field">
+     　<% if @diagnosis.destruction.to_i >= 5 && @craftsmanship.floor >= 80 %>
+        <div  class="form-container">
+          <div class="explanation-field">
+            <div class="device-inner">
+              <p class="occupation">カリスマの職人の素質</p>
+              <p>職人適正の高いあなたはほとんどの現場職において活躍することができるでしょう。将来的には独立し、たくさんの職人を抱えて仕事をするようなカリスマ的な親方になる可能性を秘めています。しかし、建設現場では様々な業種の人が仕事をしているので周りに気を遣って、物を傷付けたり壊さないようにしなければいけません。そのため物を壊すことに抵抗感を感じないあなたは少し注意する必要があります。</p>
+            </div>
+            <%= image_tag "1541251294.png" %>
+          </div>
+        </div>
+        <% else if @diagnosis.physically.to_i <= 2 && @craftsmanship.floor >= 80 %>
+          <div  class="form-container">
+            <div class="explanation-field">
+              <div class="device-inner">
+                <p class="occupation">カリスマの職人の素質</p>
+                <p>職人適正の高いあなたはほとんどの現場職において活躍することができるでしょう。将来的には独立し、たくさんの職人を抱えて仕事をするようなカリスマ的な親方になる可能性を秘めています。しかし、建設現場ではどの仕事も体力が必要であるため、少し体力をつける必要があるでしょう。</p>
+              </div>
+              <%= image_tag "1541251294.png" %>
+            </div>
+          </div>
+          <% else if @craftsmanship.floor >= 80 %>
+            <div  class="form-container">
+              <div class="explanation-field">
+                <div class="device-inner">
+                  <p class="occupation">カリスマの職人の素質</p>
+                  <p>職人適正の高いあなたはほとんどの現場職において活躍することができるでしょう。将来的には独立し、たくさんの職人を抱えて仕事をするようなカリスマ的な親方になる可能性を秘めています。現在の建設現場は人手不足であり、あなたのような職人適正の高い人材を求めているため、もしも職人になるか迷っているのであれば、一度挑戦してみてはいかがでしょうか。</p>
+                </div>
+                <%= image_tag "1541251294.png" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>  
+      <% if @craftsmanship.floor < 80 && @craftsmanship.floor >= 60 %>
+        <div  class="form-container">
+          <div class="explanation-field">
+            <div class="device-inner">
+              <p class="occupation">優秀な職人の素質</p>
+              <p>優秀なあなたは、１、２年もあればすぐに適応してある程度の仕事をこなすことができる職人になる可能性を秘めています。３、4年後には親方になって子方を連れて仕事ができるようになるでしょう。手に職をつけるのであればぴったりな仕事と言えます。</p>
+            </div>
+            <%= image_tag "1535949893.png" %>
+          </div>
+        </div>
+      <% end %>
+      <% if @craftsmanship.floor < 60 && @craftsmanship.floor >= 40 %>
+        <div  class="form-container">
+          <div class="explanation-field">
+            <div class="device-inner">
+              <p class="occupation">平凡な職人の素質</p>
+              <p>職人適正は平凡ではありますが、職種を選べば職人として生きていくには十分な要素を持ち合わせているでしょう。体力に自信があるのであれば、色んな職種を経験して決めてみるといいかもしれません。</p>
+            </div>
+            <%= image_tag "1522991416.png" %>
+          </div>
+        </div>
+      <% end %>
+      <% if @craftsmanship.floor < 40 %>
+        <div  class="form-container">
+          <div class="explanation-field">
+            <div class="device-inner">
+              <p class="occupation">劣等な職人の素質</p>
+              <p>残念ながら職人適正が低いので、別の業種の方が合っているかもしれません。しかし、体力と元気さえあれば雇ってくれる会社も多いので、挑戦してみるといいかもしれません。</p>
+            </div>
+            <%= image_tag "1522998843-1.png" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
+</div>  
