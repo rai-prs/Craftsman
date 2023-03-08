@@ -195,6 +195,7 @@
 
   .submitHover {
     color: black;
+    border-color: black;
 
     &:hover {
       cursor: pointer;
@@ -215,6 +216,7 @@
   background: transparent;
   font-weight: bolder;
   color: black;
+  border-color: black;
 
   &:hover {
     cursor: pointer;
