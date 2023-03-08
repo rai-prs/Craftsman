@@ -55,3 +55,18 @@
   }
 }
 
+@media screen and (max-width: 375px) {
+  .top {
+    .top-main {
+      height: 740px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .top {
+    .top-main {
+      height: 900px;
+    }
+  }
+}

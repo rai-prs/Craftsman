@@ -194,6 +194,8 @@
   }
 
   .submitHover {
+    color: black;
+
     &:hover {
       cursor: pointer;
       color: orange;
@@ -212,6 +214,7 @@
   border-radius: 30px;
   background: transparent;
   font-weight: bolder;
+  color: black;
 
   &:hover {
     cursor: pointer;
