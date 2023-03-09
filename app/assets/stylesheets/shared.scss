@@ -43,7 +43,7 @@ header {
 
       .title {
         color: black;
-        font-family: 'Sacramento', cursive;
+        font-family: 'Sacramento', cursive, sans-serif;
 
         &:hover {
           cursor: pointer;
@@ -73,5 +73,11 @@ footer {
     p {
       color: #f3f3f3;
     }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  header {
+    padding: 4px;
   }
 }

@@ -89,11 +89,16 @@
     font-size: 1.1rem;
   }
 
-  .btn-diagnosis-hover:hover {
-    cursor: pointer;
-    color: orange;
-    background: black;
-    opacity: .7;
+  .btn-diagnosis-hover {
+    color: black;
+    border-color: black;
+
+    &:hover {
+      cursor: pointer;
+      color: orange;
+      background: black;
+      opacity: .7;
+    }
   }
 
   #warning {
@@ -108,6 +113,8 @@
 
   button {
     border-radius: 30px;
+    border-color: black;
+    color: black;
   }
 
   button:hover {
